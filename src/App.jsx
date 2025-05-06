@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CocktailList from "./components/cocktailList";
 import Home from "./pages/Home";
+import CocktailDetail from "./pages/CocktailDetail";
 import AppHeader from "./components/AppHeader"
 import AppFooter from "./components/AppFooter"
 
@@ -11,13 +12,15 @@ function App() {
   return (
     <BrowserRouter>
       <AppHeader />
-      <main className="container my-4">
+      <body className="d-flex justify-content-center">
+        <main className="container-fluid my-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cocktails" element={<CocktailList />} />
-          {/* <Route path="/cocktails/:id" element={<CocktailDetail />} /> */}
+          <Route path="/cocktails/:id" element={<CocktailDetail />} />
         </Routes>
       </main>
+      </body>
       <AppFooter />
     </BrowserRouter>
   );

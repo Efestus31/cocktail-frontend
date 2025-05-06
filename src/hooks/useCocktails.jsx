@@ -8,8 +8,14 @@ export function useCocktails() {
 
   useEffect(() => {
     api.get('/cocktails')
-      .then(res => setCocktails(res.data))
-      .catch(err => setError(err))
+      .then(res => {
+        const list = Array.isArray(res.data.data) ? res.data.data : [];
+        setCocktails(list);
+      })
+      .catch(err => {
+        console.error(err);
+        setError(err);
+      })
       .finally(() => setLoading(false));
   }, []);
 

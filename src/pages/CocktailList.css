@@ -1,0 +1,36 @@
+.cocktail-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cocktail-card-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    
+  }
+  
+  .cocktail-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .cocktail-card:hover .cocktail-card-overlay {
+    opacity: 1;
+  }
+  

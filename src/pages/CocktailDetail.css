@@ -1,0 +1,18 @@
+
+.cocktail-detail-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0.375rem;
+    padding: 2rem;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.8s ease-in-out 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const AppHeader = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div className="container">
+    <div className="container-fluid">
       <Link className="navbar-brand" to="/">CocktailApp</Link>
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav ms-auto">
