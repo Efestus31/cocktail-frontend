@@ -12,15 +12,13 @@ function App() {
   return (
     <BrowserRouter>
       <AppHeader />
-      <body className="d-flex justify-content-center">
-        <main className="container-fluid my-4">
+      <main className="container-fluid my-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cocktails" element={<CocktailList />} />
           <Route path="/cocktails/:id" element={<CocktailDetail />} />
         </Routes>
       </main>
-      </body>
       <AppFooter />
     </BrowserRouter>
   );

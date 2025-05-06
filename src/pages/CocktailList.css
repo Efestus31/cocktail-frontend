@@ -1,6 +1,7 @@
 .cocktail-card {
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s;
   }
   
   .cocktail-card-img {
@@ -32,5 +33,15 @@
   
   .cocktail-card:hover .cocktail-card-overlay {
     opacity: 1;
+  }
+  .cocktail-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* src/pages/CocktailList.css */
+.cocktail-list-page {
+    background: url('/background/background-img.png') center/cover no-repeat;
+    min-height: 100vh;
   }
   

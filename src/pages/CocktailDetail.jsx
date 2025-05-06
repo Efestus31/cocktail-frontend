@@ -31,7 +31,7 @@ const CocktailDetail = () => {
     backgroundImage: `url(${image_url})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    minHeight: '100vh',
+    minHeight: '90vh',
     color: '#fff',
     paddingTop: '100px',
     paddingBottom: '100px'

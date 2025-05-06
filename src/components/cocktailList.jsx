@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
-import "../pages/CocktailList.css";
+import '../pages/CocktailList.css';
 
 const CocktailList = () => {
   const [cocktails, setCocktails] = useState([]);
@@ -19,26 +19,29 @@ const CocktailList = () => {
   if (error) return <div className="alert alert-danger">Errore nel caricamento.</div>;
 
   return (
-    <div className="container my-4">
-      <div className="row">
-        {cocktails.map(c => (
-          <div key={c.id} className="col-6 col-md-4 mb-4">
-            <div className="cocktail-card">
-              <img
-                src={c.image_url}
-                alt={c.name}
-                className="cocktail-card-img"
-              />
-              <div className="cocktail-card-overlay">
-                <h5>{c.name}</h5>
-                <p>{c.description}</p>
-                <Link to={`/cocktails/${c.id}`} className="btn btn-outline-light btn-sm">
-                  Dettagli
-                </Link>
+    // Wrapper full-screen con background
+    <div className="cocktail-list-page py-5">
+      <div className="container">
+        <div className="row">
+          {cocktails.map(c => (
+            <div key={c.id} className="col-6 col-md-4 mb-4">
+              <div className="cocktail-card border border-light rounded overflow-hidden">
+                <img
+                  src={c.image_url}
+                  alt={c.name}
+                  className="cocktail-card-img"
+                />
+                <div className="cocktail-card-overlay">
+                  <h5>{c.name}</h5>
+                  <p>{c.description}</p>
+                  <Link to={`/cocktails/${c.id}`} className="btn btn-outline-light btn-sm">
+                    Dettagli
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
