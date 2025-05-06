@@ -1,36 +1,30 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useCocktails } from '../hooks/useCocktails';
+import { Link } from 'react-router-dom';
 
-function CocktailList() {
-  const [cocktails, setCocktails] = useState([]);
+const CocktailList = () => {
+  const { cocktails, loading, error } = useCocktails();
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/cocktails')
-      .then(response => setCocktails(response.data))
-      .catch(error => console.error('Error fetching cocktails:', error));
-  }, []);
+  if (loading) return <div className="text-center py-5">Caricamento…</div>;
+  if (error)   return <div className="alert alert-danger">Errore nel caricamento.</div>;
 
   return (
-    <div className="container py-5">
-      <h1 className="mb-4 text-center">Cocktail Selection 🍹</h1>
-      <div className="row">
-        {cocktails.map(cocktail => (
-          <div className="col-md-4 mb-4" key={cocktail.id}>
-            <div className="card h-100 shadow">
-              <img src="/images/cocktail1.jpg" alt="cocktail1" className="img-fluid rounded" />
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{cocktail.name}</h5>
-                <p className="card-text text-truncate">{cocktail.description}</p>
-                <a href={`#/cocktails/${cocktail.id}`} className="btn btn-primary mt-auto">
-                  View Details
-                </a>
-              </div>
+    <div className="row">
+      {cocktails.map(c => (
+        <div key={c.id} className="col-md-4 mb-4">
+          <div className="card h-100">
+            <img src={c.imageUrl} className="card-img-top" alt={c.name} />
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">{c.name}</h5>
+              <p className="card-text flex-grow-1">{c.description}</p>
+              <Link to={`/cocktails/${c.id}`} className="btn btn-outline-primary mt-2">
+                Dettagli
+              </Link>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default CocktailList;
