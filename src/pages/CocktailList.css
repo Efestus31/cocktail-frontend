@@ -43,5 +43,7 @@
 .cocktail-list-page {
     background: url('/background/background-img.png') center/cover no-repeat;
     min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   

@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppHeader />
-      <main className="container-fluid my-4">
+      <main className="container-fluid bg-dark">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cocktails" element={<CocktailList />} />
